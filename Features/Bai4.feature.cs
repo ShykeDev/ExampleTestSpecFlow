@@ -20,22 +20,22 @@ namespace Lab7.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Bài 1")]
-    public partial class Bai1Feature
+    [NUnit.Framework.DescriptionAttribute("Bài 4")]
+    public partial class Bai4Feature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "Bai1.feature"
+#line 1 "Bai4.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Bài 1", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Bài 4", "//string id, string ten, string tenCaSi, int doDai, string tenNhacSi", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,27 +74,30 @@ namespace Lab7.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Chia 2 số nguyên")]
-        [NUnit.Framework.CategoryAttribute("DataSource:../data/data_Bai1.csv")]
-        [NUnit.Framework.TestCaseAttribute("2", "1", "2", null)]
-        [NUnit.Framework.TestCaseAttribute("5", "2", "2", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "1", "1", null)]
-        [NUnit.Framework.TestCaseAttribute("0", "1", "0", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "0", "0", null)]
-        public void Chia2SốNguyen(string number1, string number2, string result, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Thêm bài hát")]
+        [NUnit.Framework.CategoryAttribute("DataSource:../data/data_Bai4.csv")]
+        [NUnit.Framework.TestCaseAttribute("BH001", "Bài Hát 1", "Ca sĩ 1", "15000", "Nhạc Sĩ 1", "Thất bại", null)]
+        [NUnit.Framework.TestCaseAttribute("BH002", "Bài Hát 2", "Ca sĩ 2", "15000", "Nhạc Sĩ 2", "Thành công", null)]
+        [NUnit.Framework.TestCaseAttribute("", "Bài Hát 2", "Ca sĩ 2", "-1", "Nhạc Sĩ 2", "Thất bại", null)]
+        [NUnit.Framework.TestCaseAttribute("BH002", "Bài Hát 2", "Ca sĩ 2", "2147483648", "Nhạc Sĩ 2", "Thất bại", null)]
+        [NUnit.Framework.TestCaseAttribute("BH002", "Bài Hát 2", "Ca sĩ 2", "0", "Nhạc Sĩ 2", "Thất bại", null)]
+        public void ThemBaiHat(string id, string ten, string tenCaSi, string doDai, string tenNhacSi, string ketQua, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "DataSource:../data/data_Bai1.csv"};
+                    "DataSource:../data/data_Bai4.csv"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("number1", number1);
-            argumentsOfScenario.Add("number2", number2);
-            argumentsOfScenario.Add("result", result);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chia 2 số nguyên", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("id", id);
+            argumentsOfScenario.Add("ten", ten);
+            argumentsOfScenario.Add("tenCaSi", tenCaSi);
+            argumentsOfScenario.Add("doDai", doDai);
+            argumentsOfScenario.Add("tenNhacSi", tenNhacSi);
+            argumentsOfScenario.Add("ketQua", ketQua);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Thêm bài hát", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -105,14 +108,23 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "id",
+                            "ten",
+                            "tenCaSi",
+                            "doDai",
+                            "tenNhacSi"});
+                table1.AddRow(new string[] {
+                            string.Format("{0}", id),
+                            string.Format("{0}", ten),
+                            string.Format("{0}", tenCaSi),
+                            string.Format("{0}", doDai),
+                            string.Format("{0}", tenNhacSi)});
 #line 5
- testRunner.Given(string.Format("Số bị chia = {0}", number1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Thêm dữ liệu bài hát:", ((string)(null)), table1, "Given ");
 #line hidden
-#line 6
- testRunner.And(string.Format("Số chia = {0}", number2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 7
- testRunner.Then(string.Format("Giá trị trả về {0}", result), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 8
+ testRunner.Then(string.Format("Kết quả mong muốn: {0}", ketQua), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

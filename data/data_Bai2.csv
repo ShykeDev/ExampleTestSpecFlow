@@ -1,0 +1,9 @@
+PhepTinh,number1,number2,result
+nhân,1,0,0
+nhân,1,1,1
+nhân,0,1,0
+chia,2,1,2
+chia,5,2,2.5
+chia,1,1,1
+chia,0,1,0
+chia,1,0,0

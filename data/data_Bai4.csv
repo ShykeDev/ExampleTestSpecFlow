@@ -1,0 +1,6 @@
+﻿id,ten,tenCaSi,doDai,tenNhacSi,ketQua
+BH001,Bài Hát 1,Ca sĩ 1,15000,Nhạc Sĩ 1,Thất bại
+BH002,Bài Hát 2,Ca sĩ 2,15000,Nhạc Sĩ 2,Thành công
+,Bài Hát 2,Ca sĩ 2,-1,Nhạc Sĩ 2,Thất bại
+BH002,Bài Hát 2,Ca sĩ 2,2147483648,Nhạc Sĩ 2,Thất bại
+BH002,Bài Hát 2,Ca sĩ 2,0,Nhạc Sĩ 2,Thất bại

@@ -1,12 +1,19 @@
 ﻿using Lab7.MainCode;
 using NUnit.Framework;
+using TechTalk.SpecFlow.Infrastructure;
 
 namespace Lab7.StepDefinitions
 {
     [Binding]
     public sealed class Bai1Steps
     {
+        private readonly ISpecFlowOutputHelper _outputHelper;
         int a, b;
+
+        public Bai1Steps(ISpecFlowOutputHelper outputHelper)
+        {
+            _outputHelper = outputHelper;
+        }
 
         [Given(@"Số bị chia = (.*)")]
         public void LaySoBiChia(int number)
@@ -20,12 +27,6 @@ namespace Lab7.StepDefinitions
             b = number;
         }
 
-        [When(@"Khi chia 2 số")]
-        public void KhiChia2So()
-        {
-            
-        }
-
         [Then(@"Giá trị trả về (.*)")]
         public void KiemTraHam(int result)
         {
@@ -33,6 +34,7 @@ namespace Lab7.StepDefinitions
             {
                 if (b == 0)
                 {
+                    _outputHelper.WriteLine("Ngoại lệ chia cho 0");
                     Assert.Throws<ArithmeticException>(() => Bai1.Chia2SoNguyen(a, b));
                 }
                 else
