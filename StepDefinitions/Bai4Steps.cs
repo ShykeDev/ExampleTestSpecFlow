@@ -11,6 +11,7 @@ namespace Lab7.StepDefinitions
         private ISpecFlowOutputHelper _outputHelper;
         private BaiHatService baiHatServices;
         private BaiHat baiHat;
+        private string idBaiHat;
         public Bai4Steps(ISpecFlowOutputHelper outputHelper)
         {
             _outputHelper = outputHelper;
@@ -34,5 +35,25 @@ namespace Lab7.StepDefinitions
                 Assert.IsFalse(baiHatServices.Add(baiHat));
             }
         }
+
+        [Given(@"Xóa bài hát có id: (.*)")]
+        public void XoaBaiHat(string id)
+        {
+            idBaiHat = id;
+        }
+
+        [Then(@"Kết quả xóa muốn: (.*)")]
+        public void KetQuaXoa(string ketqua)
+        {
+            if (ketqua.Equals("Thành công"))
+            {
+                Assert.IsTrue(baiHatServices.Delete(idBaiHat));
+            }
+            else
+            {
+                Assert.IsFalse(baiHatServices.Delete(idBaiHat));
+            }
+        }
+
     }
 }

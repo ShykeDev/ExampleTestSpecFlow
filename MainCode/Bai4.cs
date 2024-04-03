@@ -60,7 +60,7 @@ namespace Lab7.MainCode
 
         public bool Delete(string id)
         {
-            var baiHat = listBaiHat.First(bh => bh.id.Equals(id));
+            var baiHat = listBaiHat.FirstOrDefault(bh => bh.id.Equals(id));
             if (baiHat == null) return false;
             listBaiHat.Remove(baiHat);
             return true;
